@@ -1,9 +1,317 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Professionnel</title>
-  </head>
-  <body></body>
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandre Gaillard — Développeur Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ======== NAVIGATION ======== -->
+    <nav class="navbar">
+        <a href="#hero" class="nav-logo">AG<span class="accent">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#formation">Formation</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+            <span class="toggle-icon">☀</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ======== HERO ======== -->
+    <section id="hero">
+        <div class="hero-content reveal">
+            <p class="section-label">— 00. Introduction —</p>
+            <h1 class="hero-title">Alexandre<br><span class="accent">Gaillard</span></h1>
+            <p class="hero-subtitle">
+                <span id="typed-text"></span><span class="cursor">█</span>
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">Voir mes projets</a>
+                <a href="#contact" class="btn-secondary">Me contacter</a>
+            </div>
+        </div>
+
+        <div class="hero-visual reveal">
+            <div class="blueprint-diagram" data-label="COMPOSANT : DEV FULL STACK">
+                <div class="diagram-grid">
+                    <div class="diagram-item" data-annotation="Interface utilisateur">
+                        <span>Frontend</span>
+                    </div>
+                    <div class="diagram-arrow">↕</div>
+                    <div class="diagram-item accent-item" data-annotation="Logique métier">
+                        <span>Backend</span>
+                    </div>
+                    <div class="diagram-arrow">↕</div>
+                    <div class="diagram-item" data-annotation="Persistance des données">
+                        <span>Base de données</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== À PROPOS ======== -->
+    <section id="about">
+        <p class="section-label">— 01. À propos —</p>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <h2>Qui suis-je ?</h2>
+                <p>En formation <strong>Développeur Web et Web Mobile</strong>, je pose les fondations solides d'une carrière ambitieuse en développement Full Stack. Curieux et passionné, j'apprends à construire des expériences web complètes, de l'interface utilisateur jusqu'à la base de données.</p>
+                <p style="margin-top: 1rem;">Mon cap : maîtriser autant le côté client que serveur pour concevoir, développer et déployer des applications de A à Z.</p>
+            </div>
+            <div class="about-cards reveal">
+                <div class="bp-card" data-label="OBJECTIF">
+                    <p>Devenir <span class="accent">Développeur Full Stack</span> et créer des produits web complets et performants.</p>
+                </div>
+                <div class="bp-card" data-label="STATUT ACTUEL">
+                    <p>En formation <span class="accent">DWWM</span> — ouvert aux opportunités d'alternance et de stage.</p>
+                </div>
+                <div class="bp-card" data-label="LOCALISATION">
+                    <p>France — <span class="accent">Disponible</span> en présentiel ou télétravail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== COMPÉTENCES ======== -->
+    <section id="skills">
+        <p class="section-label">— 02. Compétences —</p>
+        <h2 class="reveal">Mon arsenal technique</h2>
+        <div class="skills-grid">
+
+            <div class="skill-item reveal" data-label="MARKUP / STYLE">
+                <div class="skill-header">
+                    <span class="skill-name">HTML5</span>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="85"></div>
+                </div>
+            </div>
+
+            <div class="skill-item reveal" data-label="MARKUP / STYLE">
+                <div class="skill-header">
+                    <span class="skill-name">CSS3</span>
+                    <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="80"></div>
+                </div>
+            </div>
+
+            <div class="skill-item reveal" data-label="LANGAGE">
+                <div class="skill-header">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-percent">65%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="65"></div>
+                </div>
+            </div>
+
+            <div class="skill-item reveal" data-label="OUTIL">
+                <div class="skill-header">
+                    <span class="skill-name">Git / GitHub</span>
+                    <span class="skill-percent">60%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="60"></div>
+                </div>
+            </div>
+
+            <div class="skill-item reveal" data-label="FRAMEWORK — EN COURS">
+                <div class="skill-header">
+                    <span class="skill-name">React</span>
+                    <span class="skill-percent amber">30%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill amber" data-width="30"></div>
+                </div>
+            </div>
+
+            <div class="skill-item reveal" data-label="BACKEND — EN COURS">
+                <div class="skill-header">
+                    <span class="skill-name">Node.js</span>
+                    <span class="skill-percent amber">25%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill amber" data-width="25"></div>
+                </div>
+            </div>
+
+            <div class="skill-item reveal" data-label="BASE DE DONNÉES">
+                <div class="skill-header">
+                    <span class="skill-name">SQL</span>
+                    <span class="skill-percent">40%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="40"></div>
+                </div>
+            </div>
+
+            <div class="skill-item reveal" data-label="DESIGN / OUTIL">
+                <div class="skill-header">
+                    <span class="skill-name">Figma</span>
+                    <span class="skill-percent">50%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="50"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======== PROJETS ======== -->
+    <section id="projects">
+        <p class="section-label">— 03. Projets —</p>
+        <h2 class="reveal">Réalisations</h2>
+        <div class="projects-grid">
+
+            <article class="project-card reveal" data-label="PROJET 01">
+                <div class="project-header">
+                    <h3>Portfolio Sophie Bluel</h3>
+                    <span class="project-tag">HTML · CSS · JS</span>
+                </div>
+                <p class="project-desc">Page web dynamique d'une architecte d'intérieur avec gestion de galerie de travaux et modale d'administration sécurisée.</p>
+                <div class="project-links">
+                    <a href="#" class="btn-outline">GitHub →</a>
+                    <a href="#" class="btn-outline">Live →</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-label="PROJET 02">
+                <div class="project-header">
+                    <h3>Site de Bière</h3>
+                    <span class="project-tag">HTML · CSS</span>
+                </div>
+                <p class="project-desc">Site vitrine responsive pour une brasserie artisanale, avec mise en page soignée et identité visuelle forte.</p>
+                <div class="project-links">
+                    <a href="#" class="btn-outline">GitHub →</a>
+                    <a href="#" class="btn-outline">Live →</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-label="PROJET 03">
+                <div class="project-header">
+                    <h3>Panama Papers</h3>
+                    <span class="project-tag">HTML · CSS · JS</span>
+                </div>
+                <p class="project-desc">Présentation interactive de données complexes sur les Panama Papers, avec visualisation claire et navigation fluide.</p>
+                <div class="project-links">
+                    <a href="#" class="btn-outline">GitHub →</a>
+                    <a href="#" class="btn-outline">Live →</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-label="PROJET 04">
+                <div class="project-header">
+                    <h3>Pokédex</h3>
+                    <span class="project-tag">HTML · CSS · JS</span>
+                </div>
+                <p class="project-desc">Application web qui consomme l'API PokéAPI pour afficher et rechercher des Pokémon de manière dynamique.</p>
+                <div class="project-links">
+                    <a href="#" class="btn-outline">GitHub →</a>
+                    <a href="#" class="btn-outline">Live →</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ======== FORMATION ======== -->
+    <section id="formation">
+        <p class="section-label">— 04. Formation —</p>
+        <h2 class="reveal">Parcours</h2>
+        <div class="timeline">
+
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content bp-card" data-label="EN COURS">
+                    <span class="timeline-date accent">2024 — 2025</span>
+                    <h3>Titre Professionnel DWWM</h3>
+                    <p>Développeur Web et Web Mobile — Formation intensive axée sur le développement Full Stack avec des projets concrets et une approche par la pratique.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content bp-card" data-label="COMPLÉTÉ">
+                    <span class="timeline-date">2024</span>
+                    <h3>Fondamentaux du développement web</h3>
+                    <p>Maîtrise des bases — HTML, CSS, JavaScript vanilla — à travers des projets réels et progressifs.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======== CONTACT ======== -->
+    <section id="contact">
+        <p class="section-label">— 05. Contact —</p>
+        <h2 class="reveal">Travaillons ensemble</h2>
+        <div class="contact-grid">
+
+            <form class="contact-form bp-card reveal" data-label="FORMULAIRE DE CONTACT" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Votre message..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" id="submitBtn">Envoyer le message</button>
+            </form>
+
+            <div class="contact-info reveal">
+                <div class="bp-card" data-label="LIENS">
+                    <a href="https://github.com/" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-link-icon">⌥</span>
+                        <span>GitHub</span>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-link-icon">in</span>
+                        <span>LinkedIn</span>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="mailto:votre@email.com" class="contact-link">
+                        <span class="contact-link-icon">@</span>
+                        <span>Email direct</span>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+                <div class="bp-card" data-label="DISPONIBILITÉ">
+                    <div class="availability">
+                        <span class="status-dot"></span>
+                        <p>Disponible pour <span class="accent">alternance</span> ou <span class="accent">stage</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <p>Conçu & développé par <span class="accent">Alexandre Gaillard</span> — <span id="year"></span></p>
+        <p class="footer-sub">Vanilla HTML · CSS · JS</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
