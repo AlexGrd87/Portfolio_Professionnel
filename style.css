@@ -1179,7 +1179,17 @@ footer {
 }
 
 /* ============================================================
-   17. PAGE SERVICES — HERO
+   17. SECTION SERVICES (index.html) — intro paragraph
+   ============================================================ */
+
+/* Paragraphe d'accroche juste sous le h2 de la section Services */
+.services-intro {
+    max-width: 62ch; /* ~62 caractères par ligne, lisibilité optimale */
+    margin-bottom: 2.5rem;
+}
+
+/* ============================================================
+   18. PAGE SERVICES — HERO
    Même structure flex que #hero, mais min-height réduit (80vh)
    et font-size du h1 adapté au titre plus long.
    ============================================================ */
