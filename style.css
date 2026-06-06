@@ -1177,3 +1177,410 @@ footer {
 
     h2 { margin-bottom: 1.75rem; }
 }
+
+/* ============================================================
+   17. PAGE SERVICES — HERO
+   Même structure flex que #hero, mais min-height réduit (80vh)
+   et font-size du h1 adapté au titre plus long.
+   ============================================================ */
+
+#services-hero {
+    /* Layout identique au hero principal */
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    /* Compense la hauteur de la navbar fixe (~64px) */
+    padding-top: 5rem;
+}
+
+/* Bloc texte gauche : flex: 1 pour occuper l'espace disponible */
+.services-hero-content {
+    flex: 1;
+}
+
+/* h1 plus petit que sur index.html car le titre est plus long */
+.services-hero-title {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+/* Paragraphe d'accroche : police sans-serif lisible (pas mono) */
+.services-hero-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 52ch; /* ~52 caractères par ligne, lisibilité optimale */
+    margin-bottom: 2.5rem;
+}
+
+/* Liste de points forts dans la carte blueprint à droite */
+.spec-list {
+    /* list-style: none hérité du reset global ul {} */
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.spec-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* La flèche → est colorée en cyan pour rappeler l'accent blueprint */
+.spec-bullet {
+    color: var(--accent-cyan);
+    flex-shrink: 0; /* ne rétrécit pas si le texte est long */
+}
+
+/* ============================================================
+   18. PAGE SERVICES — GRILLE DE PRESTATIONS
+   4 cartes en 2×2 colonnes sur desktop, 1 colonne sur mobile.
+   Style inspiré de .project-card mais avec une icône SVG en haut.
+   ============================================================ */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Délais en cascade pour l'animation scroll reveal */
+.services-grid .service-card:nth-child(1) { transition-delay: 0.05s; }
+.services-grid .service-card:nth-child(2) { transition-delay: 0.12s; }
+.services-grid .service-card:nth-child(3) { transition-delay: 0.19s; }
+.services-grid .service-card:nth-child(4) { transition-delay: 0.26s; }
+
+/* La carte elle-même : étend le style .bp-card */
+.service-card {
+    position: relative;
+    padding: 1.8rem 1.6rem 1.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+/* Étiquette flottante (PRESTATION 01, etc.) — même technique que .bp-card */
+.service-card[data-label]::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -10px; left: 1.2rem;
+    background: var(--label-bg);
+    padding: 0 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+}
+
+/* Ligne dégradée en bas au hover — même effet "tracé" que .project-card */
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-amber));
+    transition: width 0.45s ease;
+}
+
+.service-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 14px 36px var(--shadow);
+    transform: translateY(-4px);
+}
+
+.service-card:hover::after { width: 100%; }
+
+/* Icône SVG : couleur héritée (currentColor = var(--accent-cyan) via .service-icon) */
+.service-icon {
+    width: 38px;
+    height: 38px;
+    /* stroke="currentColor" dans le SVG → la couleur est définie ici */
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   19. PAGE SERVICES — PROCESSUS (étapes numérotées)
+   <ol> sémantique. 4 colonnes → 2 colonnes → 1 colonne.
+   ============================================================ */
+
+.process-steps {
+    list-style: none; /* reset du style <ol> par défaut */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+/* Délais en cascade pour le scroll reveal */
+.process-steps .process-step:nth-child(1) { transition-delay: 0.05s; }
+.process-steps .process-step:nth-child(2) { transition-delay: 0.12s; }
+.process-steps .process-step:nth-child(3) { transition-delay: 0.19s; }
+.process-steps .process-step:nth-child(4) { transition-delay: 0.26s; }
+
+.process-step {
+    position: relative;
+    padding: 1.6rem 1.4rem 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.process-step:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 0 20px var(--shadow);
+}
+
+/* Numéro de l'étape : même style que .section-label */
+.step-number {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.4rem;
+    opacity: 0.85;
+}
+
+/* ============================================================
+   20. PAGE SERVICES — TABLEAU TARIFAIRE
+   Tableau HTML accessible. Sur desktop : table classique.
+   Sur mobile (<580px) : chaque <tr> devient une carte empilée,
+   les en-têtes masqués sont remplacés par des pseudo-éléments
+   générés depuis l'attribut data-label de chaque <td>.
+   ============================================================ */
+
+/* Wrapper : scroll horizontal sur tablette si la table déborde */
+.pricing-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse; /* supprime l'espace entre les cellules */
+    font-family: var(--font-sans);
+}
+
+/* En-têtes de colonnes */
+.pricing-table th {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.14em;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap; /* évite les retours à la ligne dans l'en-tête */
+}
+
+/* Cellules de données */
+.pricing-table td {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+/* Première colonne (nom de la prestation) : plus lisible */
+.pricing-table td:first-child {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+/* Colonne tarif : mise en avant en ambre, style mono */
+.pricing-table td:nth-child(2) {
+    color: var(--accent-amber);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.88rem;
+    white-space: nowrap;
+}
+
+/* Dernière ligne : pas de bordure en bas (le wrapper s'en charge) */
+.pricing-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Surlignage discret au survol d'une ligne */
+.pricing-table tbody tr {
+    transition: background var(--transition);
+}
+
+.pricing-table tbody tr:hover {
+    background: rgba(56, 189, 248, 0.04);
+}
+
+/* Détail entre parenthèses dans la cellule prestation */
+.td-detail {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.85em;
+}
+
+/* Note sous le tableau */
+.pricing-note {
+    margin-top: 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.65;
+}
+
+/* Second CTA en bas de page */
+.pricing-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* ============================================================
+   21. PAGE SERVICES — RESPONSIVE
+   ============================================================ */
+
+/* Tablette large : process en 2 colonnes */
+@media (max-width: 900px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablette / mobile : hero en colonne, visuel centré */
+@media (max-width: 768px) {
+    #services-hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding-top: 6rem;
+        min-height: auto;
+        padding-bottom: 2rem;
+    }
+
+    /* Centre le bouton CTA sur mobile */
+    #services-hero .hero-actions {
+        justify-content: center;
+    }
+
+    /* Limite la largeur de la carte spec sur mobile */
+    #services-hero .hero-visual {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* Aligne le texte de la liste de specs à gauche (lisibilité) */
+    .spec-list {
+        text-align: left;
+    }
+
+    /* Une carte par ligne sous 768px */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile : tout en 1 colonne + tableau → cartes empilées */
+@media (max-width: 580px) {
+    /* Bouton pleine largeur (cohérent avec index.html) */
+    #services-hero .btn-primary,
+    #services-hero .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Process : 1 colonne */
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    /* ---- Tableau → cartes empilées ----
+       Technique : on passe tous les éléments du tableau en display:block,
+       on masque le <thead>, et on affiche les en-têtes via CSS ::before
+       en lisant l'attribut data-label de chaque <td>.               */
+
+    .pricing-wrapper {
+        border: none;       /* le wrapper perd sa bordure (les cartes ont la leur) */
+        background: transparent;
+        overflow-x: visible;
+    }
+
+    /* Tous les éléments du tableau passent en block */
+    .pricing-table,
+    .pricing-table thead,
+    .pricing-table tbody,
+    .pricing-table tr,
+    .pricing-table th,
+    .pricing-table td {
+        display: block;
+    }
+
+    /* On cache l'en-tête : les labels sont portés par data-label sur les <td> */
+    .pricing-table thead {
+        display: none;
+    }
+
+    /* Chaque ligne devient une carte blueprint */
+    .pricing-table tbody tr {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--card-bg);
+        padding: 1.2rem 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .pricing-table tbody tr:hover {
+        background: var(--card-bg); /* annule le hover de la règle desktop */
+    }
+
+    /* Reset du style desktop des cellules */
+    .pricing-table td {
+        padding: 0.25rem 0;
+        border-bottom: none;
+        font-size: 0.88rem;
+    }
+
+    /* Première cellule = titre de la carte (prestation) */
+    .pricing-table td:first-child {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border);
+        display: block;
+    }
+
+    /* Pour les autres cellules : on affiche le label avant la valeur */
+    .pricing-table td[data-label]::before {
+        content: attr(data-label) " — ";
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--accent-cyan);
+        letter-spacing: 0.1em;
+        /* display: inline pour rester sur la même ligne que la valeur */
+    }
+
+    /* Annule le white-space: nowrap du tarif en desktop */
+    .pricing-table td:nth-child(2) {
+        white-space: normal;
+    }
+}

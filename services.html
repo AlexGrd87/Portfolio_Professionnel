@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Freelance — Alexandre Gaillard, Développeur Web à Limoges</title>
+
+    <!-- SEO : mots-clés orientés prospects (artisans, commerçants…) -->
+    <meta name="description" content="Sites vitrines, intégration de maquettes et maintenance web pour artisans et commerçants. Alexandre Gaillard, développeur web freelance à Limoges. Devis gratuit.">
+    <meta name="keywords" content="développeur web freelance, site vitrine artisan, intégration maquette, maintenance site web, Limoges, Nouvelle-Aquitaine, tarif site internet">
+    <meta name="author" content="Alexandre Gaillard">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph : prévisualisation lors du partage sur les réseaux -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Services Web Freelance — Alexandre Gaillard">
+    <meta property="og:description" content="Site vitrine, intégration de maquette, maintenance. Un interlocuteur unique, du devis à la livraison.">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Favicon commun à tout le portfolio -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Feuille de styles partagée (variables, composants, responsive) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+         Même structure que index.html. Différences :
+         - Le logo AG. pointe vers index.html (retour au portfolio)
+         - Les liens de section pointent vers index.html#section
+         - "Services" est marqué actif (class="active" + aria-current)
+         ============================================================ -->
+    <nav class="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="nav-logo">AG<span class="accent">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="index.html#skills">Compétences</a></li>
+            <li><a href="index.html#projects">Projets</a></li>
+            <li><a href="index.html#formation">Formation</a></li>
+            <li><a href="services.html" class="active" aria-current="page">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+            <span class="toggle-icon">☀</span>
+        </button>
+        <!-- Bouton hamburger pour mobile (même logique que index.html) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main>
+
+    <!-- ============================================================
+         SECTION 1 — HERO SERVICES
+         Accroche ciblée prospects. Layout flex : texte à gauche,
+         fiche "spec" à droite (même esprit que le hero du portfolio).
+         ============================================================ -->
+    <section id="services-hero">
+
+        <!-- Bloc texte principal (occupe l'espace restant avec flex: 1) -->
+        <div class="services-hero-content reveal">
+            <p class="section-label">— Freelance —</p>
+
+            <!-- h1 avec font-size réduit via .services-hero-title (titre long) -->
+            <h1 class="services-hero-title">
+                Votre présence en ligne,<br>
+                <span class="accent">simple et soignée.</span>
+            </h1>
+
+            <p class="services-hero-subtitle">
+                Je crée des sites web sur mesure pour les artisans, commerçants et
+                indépendants qui veulent être visibles sans se prendre la tête.
+                Code propre, design moderne, un interlocuteur unique du début à la fin.
+            </p>
+
+            <div class="hero-actions">
+                <!-- Pointe vers la section contact du portfolio principal -->
+                <a href="index.html#contact" class="btn-primary">Discutons de votre projet</a>
+                <!-- Ancre interne vers la section tarifs plus bas sur cette page -->
+                <a href="#tarifs" class="btn-secondary">Voir les tarifs</a>
+            </div>
+        </div>
+
+        <!-- Bloc visuel droite : "fiche technique" de l'offre -->
+        <!-- Réutilise .hero-visual (flex: 0 0 auto; width: 300px) et .blueprint-diagram -->
+        <div class="hero-visual reveal">
+            <div class="blueprint-diagram" data-label="SPEC : OFFRE FREELANCE">
+                <!-- aria-label décrit le contenu pour les lecteurs d'écran -->
+                <ul class="spec-list" aria-label="Points forts de l'offre">
+                    <li class="spec-item">
+                        <!-- aria-hidden="true" : la flèche est purement décorative -->
+                        <span class="spec-bullet" aria-hidden="true">→</span>
+                        <span>Un interlocuteur unique, de A à Z</span>
+                    </li>
+                    <li class="spec-item">
+                        <span class="spec-bullet" aria-hidden="true">→</span>
+                        <span>Devis clair et délai annoncé dès le départ</span>
+                    </li>
+                    <li class="spec-item">
+                        <span class="spec-bullet" aria-hidden="true">→</span>
+                        <span>Code propre, site rapide et mobile-friendly</span>
+                    </li>
+                    <li class="spec-item">
+                        <span class="spec-bullet" aria-hidden="true">→</span>
+                        <span>Livraison + guide de prise en main inclus</span>
+                    </li>
+                    <li class="spec-item">
+                        <span class="spec-bullet" aria-hidden="true">→</span>
+                        <span>Validation à chaque étape, zéro surprise</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 2 — PRESTATIONS
+         4 cartes en grille 2×2 (→ 1 colonne sur mobile).
+         Chaque <article> étend le style .bp-card avec une icône SVG.
+         aria-labelledby relie le titre h2 à la section pour l'a11y.
+         ============================================================ -->
+    <section id="prestations" aria-labelledby="prestations-titre">
+        <p class="section-label">— 01. Prestations —</p>
+        <h2 id="prestations-titre" class="reveal">Mes prestations</h2>
+
+        <div class="services-grid">
+
+            <!-- CARTE 1 : Site vitrine -->
+            <article class="service-card reveal" data-label="PRESTATION 01">
+                <!--
+                    Icône SVG inline : moniteur / navigateur
+                    aria-hidden="true"  → ignorée par les lecteurs d'écran (décorative)
+                    focusable="false"   → empêche IE/Edge de la mettre dans le focus order
+                -->
+                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true" focusable="false">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <h3>Site vitrine</h3>
+                <p>Un site clair et responsive pour présenter votre activité, vos services et vos coordonnées. Conçu pour être trouvé sur Google et consulté depuis n'importe quel appareil.</p>
+            </article>
+
+            <!-- CARTE 2 : Intégration de maquette -->
+            <article class="service-card reveal" data-label="PRESTATION 02">
+                <!-- Icône SVG : calques empilés (layers) -->
+                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true" focusable="false">
+                    <polygon points="12,2 2,7 12,12 22,7"/>
+                    <polyline points="2,17 12,22 22,17"/>
+                    <polyline points="2,12 12,17 22,12"/>
+                </svg>
+                <h3>Intégration de maquette</h3>
+                <p>Vous avez déjà un design (Figma, XD, image…) ? Je transforme votre maquette en site web fonctionnel, fidèle au pixel près et optimisé pour tous les écrans.</p>
+            </article>
+
+            <!-- CARTE 3 : Maintenance & mises à jour -->
+            <article class="service-card reveal" data-label="PRESTATION 03">
+                <!-- Icône SVG : engrenage (settings) -->
+                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83
+                             l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21
+                             a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33
+                             l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15
+                             a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9
+                             a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06
+                             A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09
+                             a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06
+                             a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9
+                             a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <h3>Maintenance &amp; mises à jour</h3>
+                <p>Votre site évolue avec vous : modifications de textes ou d'images, corrections de bugs, petites évolutions de design ou de fonctionnalités. Réactivité garantie.</p>
+            </article>
+
+            <!-- CARTE 4 : Dépannage / refonte légère -->
+            <article class="service-card reveal" data-label="PRESTATION 04">
+                <!-- Icône SVG : clé/outil (wrench) -->
+                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true" focusable="false">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77
+                             a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91
+                             a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <h3>Dépannage / refonte légère</h3>
+                <p>Votre site est lent, cassé ou simplement dépassé ? Je diagnostique le problème et le remets en état rapidement — ou je l'améliore pour qu'il vous ressemble à nouveau.</p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 3 — PROCESSUS
+         <ol> sémantique (liste ordonnée = étapes dans l'ordre).
+         4 étapes en grille : 4 cols → 2 cols → 1 col selon la largeur.
+         ============================================================ -->
+    <section id="processus" aria-labelledby="processus-titre">
+        <p class="section-label">— 02. Processus —</p>
+        <h2 id="processus-titre" class="reveal">Comment ça se passe</h2>
+
+        <!-- aria-label : description pour les lecteurs d'écran -->
+        <ol class="process-steps" aria-label="Les 4 étapes du projet">
+
+            <li class="process-step reveal">
+                <!-- Numéro visuel de l'étape (aria-hidden : le <li> lui-même
+                     est déjà dans un <ol> donc l'ordre est déjà communiqué) -->
+                <span class="step-number" aria-hidden="true">— 01 —</span>
+                <h3>On échange sur votre ou vos besoins</h3>
+                <p>Un appel ou un e-mail suffit. On discute de votre activité, vos objectifs et votre budget. C'est gratuit et sans engagement.</p>
+            </li>
+
+            <li class="process-step reveal">
+                <span class="step-number" aria-hidden="true">— 02 —</span>
+                <h3>Devis clair et délai annoncé</h3>
+                <p>Je vous envoie un devis détaillé avec les prix et les délais. Pas de mauvaise surprise : tout est écrit avant de démarrer.</p>
+            </li>
+
+            <li class="process-step reveal">
+                <span class="step-number" aria-hidden="true">— 03 —</span>
+                <h3>Je réalise, vous validez</h3>
+                <p>Je travaille par étapes et vous montre l'avancement régulièrement. Vos retours sont intégrés au fur et à mesure.</p>
+            </li>
+
+            <li class="process-step reveal">
+                <span class="step-number" aria-hidden="true">— 04 —</span>
+                <h3>Livraison + guide de gestion</h3>
+                <p>À la livraison, je vous remets les fichiers sources et un petit guide pour gérer votre site en toute autonomie.</p>
+            </li>
+
+        </ol>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 4 — GRILLE TARIFAIRE
+         <table> HTML sémantique avec :
+         - scope="col" sur les <th> → accessibilité lecteurs d'écran
+         - data-label sur les <td> → utilisé par le CSS pour afficher
+           un label contextuel quand le tableau passe en mode "cartes"
+           sur mobile (technique CSS responsive sans JS)
+         ============================================================ -->
+    <section id="tarifs" aria-labelledby="tarifs-titre">
+        <p class="section-label">— 03. Tarifs —</p>
+        <h2 id="tarifs-titre" class="reveal">Grille tarifaire</h2>
+
+        <!-- .pricing-wrapper gère l'overflow-x sur tablette + le style du tableau -->
+        <div class="pricing-wrapper reveal">
+            <table class="pricing-table" aria-label="Grille tarifaire des prestations">
+                <thead>
+                    <tr>
+                        <!-- scope="col" indique que chaque <th> est un en-tête de colonne -->
+                        <th scope="col">Prestation</th>
+                        <th scope="col">Tarif indicatif</th>
+                        <th scope="col">Délai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--
+                        data-label sur les <td> sert au CSS mobile :
+                        td[data-label]::before { content: attr(data-label) " — "; }
+                        Cela évite d'avoir à dupliquer les en-têtes en HTML.
+                    -->
+                    <tr>
+                        <td>Landing page <span class="td-detail">(1 page)</span></td>
+                        <td data-label="Tarif">250 – 350 €</td>
+                        <td data-label="Délai">3 – 5 jours</td>
+                    </tr>
+                    <tr>
+                        <td>Site vitrine <span class="td-detail">(3 à 5 pages)</span></td>
+                        <td data-label="Tarif">450 – 700 €</td>
+                        <td data-label="Délai">1 – 2 semaines</td>
+                    </tr>
+                    <tr>
+                        <td>Intégration de maquette</td>
+                        <td data-label="Tarif">dès 200 € / page</td>
+                        <td data-label="Délai">selon projet</td>
+                    </tr>
+                    <tr>
+                        <td>Maintenance mensuelle</td>
+                        <td data-label="Tarif">30 – 50 € / mois</td>
+                        <td data-label="Délai">—</td>
+                    </tr>
+                    <tr>
+                        <td>Dépannage / petites modifs</td>
+                        <td data-label="Tarif">30 € / h ou forfait</td>
+                        <td data-label="Délai">sous 48 – 72 h</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Note légale sous le tableau -->
+        <p class="pricing-note reveal">
+            * Tarifs indicatifs hors taxes. Chaque projet est unique —
+            contactez-moi pour un devis personnalisé et gratuit.
+        </p>
+
+        <!-- Second appel à l'action en bas de page -->
+        <div class="pricing-cta reveal">
+            <a href="index.html#contact" class="btn-primary">Demander un devis gratuit</a>
+        </div>
+
+    </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER — Identique à index.html
+         L'année est injectée dynamiquement par services.js (section 4)
+         ============================================================ -->
+    <footer>
+        <p>Conçu &amp; développé par <span class="accent">Alexandre Gaillard</span> — <span id="year"></span></p>
+        <p class="footer-sub">Vanilla HTML · CSS · JS</p>
+    </footer>
+
+    <!--
+        Script SPÉCIFIQUE à cette page.
+        On n'utilise PAS script.js car il référence des éléments
+        qui n'existent que sur index.html (typed-text, contactForm,
+        imageModal…) et provoquerait des erreurs JS ici.
+        services.js ne contient que les comportements communs :
+        thème, menu mobile, scroll reveal, footer année, navbar shadow.
+    -->
+    <script src="services.js"></script>
+</body>
+</html>
