@@ -67,17 +67,17 @@
         <div class="hero-visual reveal">
             <div class="blueprint-diagram" data-label="COMPOSANT : DEV FULL STACK">
                 <div class="diagram-grid">
-                    <div class="diagram-item" data-annotation="Interface utilisateur">
+                    <a href="#projects" class="diagram-item" data-annotation="Voir mes réalisations →">
                         <span>Frontend</span>
-                    </div>
+                    </a>
                     <div class="diagram-arrow">↕</div>
-                    <div class="diagram-item accent-item" data-annotation="Logique métier">
+                    <a href="#formation" class="diagram-item accent-item" data-annotation="Formation en cours →">
                         <span>Backend</span>
-                    </div>
+                    </a>
                     <div class="diagram-arrow">↕</div>
-                    <div class="diagram-item" data-annotation="Persistance des données">
+                    <a href="#skills" class="diagram-item" data-annotation="Voir mes compétences →">
                         <span>Base de données</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -88,10 +88,8 @@
         <p class="section-label">— 01. À propos —</p>
         <div class="about-grid">
             <div class="about-left reveal">
-                <div class="profile-photo" id="profilePhoto">
+                <div class="profile-photo" aria-label="Alexandre Gaillard">
                     <span class="profile-initials">AG</span>
-                    <span class="profile-hint">Ajouter une photo</span>
-                    <input type="file" id="photoInput" accept="image/*" hidden>
                 </div>
                 <div class="about-text">
                     <h2>Qui suis-je ?</h2>
@@ -205,82 +203,132 @@
 
     <!-- ======== PROJETS ======== -->
     <section id="projects">
-        <p class="section-label">— 03. Projets —</p>
+        <p class="section-label">— 03. Réalisations —</p>
         <h2 class="reveal">Réalisations</h2>
-        <div class="projects-grid">
 
-            <article class="project-card reveal" data-label="PROJET 01">
-                <div class="project-thumbnail">
-                    <img src="Images/Sophie Bluel.jpg" alt="Capture du projet Portfolio Sophie Bluel" class="thumbnail-img">
+        <!-- Filtres par technologie -->
+        <div class="project-filters reveal" role="group" aria-label="Filtrer les projets par technologie">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="html-css">HTML · CSS</button>
+            <button class="filter-btn" data-filter="javascript">JavaScript</button>
+        </div>
+
+        <!-- Projet mis en avant (pleine largeur) -->
+        <article class="project-featured reveal" data-tags="javascript html-css" data-label="PROJET PHARE">
+            <div class="project-featured-img">
+                <img src="Images/Sophie Bluel.jpg" alt="Interface du portfolio Sophie Bluel — galerie filtrée et modale d'administration">
+            </div>
+            <div class="project-featured-body">
+                <div class="project-meta-row">
+                    <span class="project-number" aria-hidden="true">01</span>
+                    <span class="project-status completed">Complété</span>
                 </div>
-                <div class="project-header">
-                    <h3>Portfolio Sophie Bluel</h3>
-                    <span class="project-tag">HTML · CSS · JS</span>
+                <h3>Portfolio Sophie Bluel</h3>
+                <p class="project-tagline">SPA front-end : galerie filtrée, authentification JWT et gestion des œuvres via API REST</p>
+                <div class="project-stack">
+                    <span class="stack-tag">HTML</span>
+                    <span class="stack-tag">CSS</span>
+                    <span class="stack-tag">JavaScript</span>
+                    <span class="stack-tag">API REST</span>
                 </div>
-                <p class="project-desc">Portfolio d'une architecte d'intérieur : galerie de projets filtrée dynamiquement, page de connexion sécurisée et modale d'administration pour gérer les œuvres — 100% Vanilla JS.</p>
+                <p>Premier projet d'envergure — galerie dynamique avec filtres par catégorie, connexion sécurisée et modale d'administration pour gérer les œuvres. Intégration d'une API REST en fetch, gestion du token JWT, manipulation du DOM — 100&nbsp;% Vanilla JS.</p>
                 <div class="project-links">
-                    <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">GitHub →</a>
-                    <a href="#" class="btn-outline">Live →</a>
+                    <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">Voir le code →</a>
                 </div>
-            </article>
+            </div>
+        </article>
 
-            <article class="project-card reveal" data-label="PROJET 02">
-                <div class="project-thumbnail">
-                    <img src="Images/Site de biere.png" alt="Capture du projet Site de Bière" class="thumbnail-img">
+        <!-- Grille 2×2 des autres projets -->
+        <div class="projects-grid-v2">
+
+            <article class="project-card-v2 reveal" data-tags="html-css" data-label="PROJET 02">
+                <div class="pcv2-img">
+                    <img src="Images/Site de biere.png" alt="Site vitrine brasserie artisanale">
                 </div>
-                <div class="project-header">
+                <div class="pcv2-body">
+                    <div class="project-meta-row">
+                        <span class="project-number" aria-hidden="true">02</span>
+                        <span class="project-status completed">Complété</span>
+                    </div>
                     <h3>Site de Bière</h3>
-                    <span class="project-tag">HTML · CSS</span>
-                </div>
-                <p class="project-desc">Site vitrine responsive pour une brasserie artisanale, avec mise en page soignée et identité visuelle forte.</p>
-                <div class="project-links">
-                    <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">GitHub →</a>
-                    <a href="#" class="btn-outline">Live →</a>
+                    <p class="project-tagline">Identité visuelle forte et mise en page responsive, sans JS</p>
+                    <div class="project-stack">
+                        <span class="stack-tag">HTML</span>
+                        <span class="stack-tag">CSS</span>
+                    </div>
+                    <p>Site vitrine pour une brasserie artisanale. Typographie soignée, palette construite autour de l'image de marque, mise en page fluide — la puissance du CSS seul.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">Voir le code →</a>
+                    </div>
                 </div>
             </article>
 
-            <article class="project-card reveal" data-label="PROJET 03">
-                <div class="project-thumbnail">
-                    <img src="Images/PokéBattle.png" alt="Capture du projet PokeBattle" class="thumbnail-img">
+            <article class="project-card-v2 reveal" data-tags="javascript html-css" data-label="PROJET 03">
+                <div class="pcv2-img">
+                    <img src="Images/PokéBattle.png" alt="Interface du jeu PokeBattle — combat tour par tour">
                 </div>
-                <div class="project-header">
+                <div class="pcv2-body">
+                    <div class="project-meta-row">
+                        <span class="project-number" aria-hidden="true">03</span>
+                        <span class="project-status wip">En cours</span>
+                    </div>
                     <h3>PokeBattle</h3>
-                    <span class="project-tag">HTML · CSS · JS</span>
-                </div>
-                <span class="project-wip">🚧 En cours de développement</span>
-                <p class="project-desc">Jeu Pokémon-like sur navigateur : système de combats au tour par tour, gain d'XP, évolutions de Pokémon et progression du joueur — entièrement en Vanilla JS.</p>
-                <div class="project-links">
-                    <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">GitHub →</a>
-                    <a href="#" class="btn-outline">Live →</a>
+                    <p class="project-tagline">Jeu de combat RPG au tour par tour, 100&nbsp;% Vanilla JS</p>
+                    <div class="project-stack">
+                        <span class="stack-tag">HTML</span>
+                        <span class="stack-tag">CSS</span>
+                        <span class="stack-tag">JavaScript</span>
+                    </div>
+                    <p>Architecture orientée objet : système de combat, gestion XP, évolutions et progression du joueur — maîtrise des classes JS, des événements et de la gestion d'état.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">Voir le code →</a>
+                    </div>
                 </div>
             </article>
 
-            <article class="project-card reveal" data-label="PROJET 04">
-                <div class="project-thumbnail">
-                    <img src="Images/Boutique manga.png" alt="Capture du projet Boutique Manga" class="thumbnail-img">
+            <article class="project-card-v2 reveal" data-tags="javascript html-css" data-label="PROJET 04">
+                <div class="pcv2-img">
+                    <img src="Images/Boutique manga.png" alt="Interface e-commerce Boutique Manga">
                 </div>
-                <div class="project-header">
+                <div class="pcv2-body">
+                    <div class="project-meta-row">
+                        <span class="project-number" aria-hidden="true">04</span>
+                        <span class="project-status completed">Complété</span>
+                    </div>
                     <h3>Boutique Manga</h3>
-                    <span class="project-tag">HTML · CSS · JS</span>
-                </div>
-                <p class="project-desc">Site vitrine fictif façon e-commerce : catalogue de mangas, filtre de recherche, fiches produits et interface panier complète — 100% statique et conçu comme une démo réaliste.</p>
-                <div class="project-links">
-                    <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">GitHub →</a>
-                    <a href="#" class="btn-outline">Live →</a>
+                    <p class="project-tagline">Simulation e-commerce complète — catalogue, filtres et panier</p>
+                    <div class="project-stack">
+                        <span class="stack-tag">HTML</span>
+                        <span class="stack-tag">CSS</span>
+                        <span class="stack-tag">JavaScript</span>
+                    </div>
+                    <p>Boutique en ligne statique : catalogue filtrable, fiches produit et panier côté client — démontre la gestion d'état complexe en JS pur, sans backend.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">Voir le code →</a>
+                    </div>
                 </div>
             </article>
 
-            <article class="project-card reveal" data-label="PROJET 05">
-                <div class="project-thumbnail">
-                    <img src="Images/Mespoulet.jpg" alt="Capture du projet Mespoulet Distribution" class="thumbnail-img">
+            <article class="project-card-v2 reveal" data-tags="javascript html-css" data-label="PROJET 05">
+                <div class="pcv2-img">
+                    <img src="Images/Mespoulet.jpg" alt="Site vitrine Mespoulet Distribution">
                 </div>
-                <div class="project-header">
+                <div class="pcv2-body">
+                    <div class="project-meta-row">
+                        <span class="project-number" aria-hidden="true">05</span>
+                        <span class="project-status completed">Complété</span>
+                    </div>
                     <h3>Mespoulet Distribution</h3>
-                    <span class="project-tag">HTML · CSS · JS</span>
-                </div>
-                <p class="project-desc">Site vitrine pour un grossiste en boissons limougeaud — hero plein écran avec image d'ambiance, catalogue produits (vins, spiritueux, bières…), pages entreprise et contact. Projet d'entraînement non déployé.</p>
-                <div class="project-links">
-                    <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">GitHub →</a>
+                    <p class="project-tagline">Site multi-pages pour un grossiste en boissons limougeaud</p>
+                    <div class="project-stack">
+                        <span class="stack-tag">HTML</span>
+                        <span class="stack-tag">CSS</span>
+                        <span class="stack-tag">JavaScript</span>
+                    </div>
+                    <p>Architecture multi-pages, hero plein écran et catalogue structuré par catégories — premier projet conçu sur la base d'un cahier des charges défini en amont.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">Voir le code →</a>
+                    </div>
                 </div>
             </article>
 

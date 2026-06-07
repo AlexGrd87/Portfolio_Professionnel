@@ -190,37 +190,34 @@ contactForm.addEventListener('submit', (e) => {
 document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ============================================================
-   8. PHOTO DE PROFIL — CLIC POUR CHANGER
+   8. FILTRE DES PROJETS PAR TECHNOLOGIE
+   Boutons .filter-btn → masque/affiche les articles via .hidden.
    ============================================================ */
 
-const profilePhoto = document.getElementById('profilePhoto');
-const photoInput   = document.getElementById('photoInput');
+const filterBtns = document.querySelectorAll('.filter-btn');
 
-if (profilePhoto && photoInput) {
-    profilePhoto.addEventListener('click', () => photoInput.click());
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Activer le bouton cliqué, désactiver les autres
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-    photoInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
+        const filter = btn.dataset.filter;
 
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-            // Supprimer les éléments texte
-            profilePhoto.querySelector('.profile-initials').style.display = 'none';
-            profilePhoto.querySelector('.profile-hint').style.display = 'none';
+        // Projet phare
+        const featured = document.querySelector('.project-featured');
+        if (featured) {
+            const tagList = (featured.dataset.tags || '').split(' ');
+            featured.classList.toggle('hidden', filter !== 'all' && !tagList.includes(filter));
+        }
 
-            // Insérer ou remplacer l'image
-            let img = profilePhoto.querySelector('img');
-            if (!img) {
-                img = document.createElement('img');
-                profilePhoto.appendChild(img);
-            }
-            img.src = ev.target.result;
-            img.alt = 'Alexandre Gaillard';
-        };
-        reader.readAsDataURL(file);
+        // Cartes secondaires
+        document.querySelectorAll('.project-card-v2').forEach(card => {
+            const tagList = (card.dataset.tags || '').split(' ');
+            card.classList.toggle('hidden', filter !== 'all' && !tagList.includes(filter));
+        });
     });
-}
+});
 
 /* ============================================================
    9. COMPTEUR ANIMÉ SUR LES POURCENTAGES DE COMPÉTENCES
@@ -275,8 +272,8 @@ const modalCaption  = document.getElementById('modalCaption');
 const modalClose    = document.getElementById('modalClose');
 const modalBackdrop = document.getElementById('modalBackdrop');
 
-// Ouvrir la modale au clic sur une thumbnail
-document.querySelectorAll('.project-thumbnail img').forEach(img => {
+// Ouvrir la modale au clic sur les images de projets (projet phare + cartes secondaires)
+document.querySelectorAll('.project-featured-img img, .pcv2-img img').forEach(img => {
     img.addEventListener('click', () => {
         modalImg.src        = img.src;
         modalImg.alt        = img.alt;
