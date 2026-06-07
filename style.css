@@ -1838,6 +1838,35 @@ footer {
     padding-top: 0.5rem;
 }
 
+/* ---- Placeholder image Dislyte (pas de screenshot local) ---- */
+.pcv2-img--dislyte {
+    background: linear-gradient(135deg, #0d0620 0%, #1a0940 55%, #2d1060 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Grille de points en fond — cohérence Blueprint Vivant */
+.pcv2-img--dislyte::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(139, 92, 246, 0.25) 1px, transparent 1px);
+    background-size: 18px 18px;
+}
+
+/* Label URL centré */
+.pcv2-game-label {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    color: rgba(167, 139, 250, 0.55);
+    letter-spacing: 0.15em;
+    text-align: center;
+    padding: 0 1rem;
+}
+
 /* ---- État masqué (filtre actif) ---- */
 .project-featured.hidden,
 .project-card-v2.hidden {
