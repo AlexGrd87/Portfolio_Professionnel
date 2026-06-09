@@ -24,8 +24,11 @@ themeToggle.addEventListener('click', () => {
     updateIcon(next);
 });
 
+const SVG_SUN = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+const SVG_MOON = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+
 function updateIcon(theme) {
-    toggleIcon.textContent = theme === 'dark' ? '☀' : '☾';
+    toggleIcon.innerHTML = theme === 'dark' ? SVG_SUN : SVG_MOON;
 }
 
 /* ============================================================
@@ -161,26 +164,47 @@ sections.forEach(sec => sectionObserver.observe(sec));
 const contactForm = document.getElementById('contactForm');
 const submitBtn   = document.getElementById('submitBtn');
 
+// IDs EmailJS — à renseigner depuis ton dashboard emailjs.com
+const EMAILJS_SERVICE_ID  = 'service_5v78yif';
+const EMAILJS_TEMPLATE_ID = 'template_4yswinu';
+
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Simuler un envoi (à remplacer par un vrai backend / EmailJS)
-    submitBtn.textContent  = 'Envoi en cours…';
-    submitBtn.disabled     = true;
+    submitBtn.textContent   = 'Envoi en cours…';
+    submitBtn.disabled      = true;
     submitBtn.style.opacity = '0.7';
 
-    setTimeout(() => {
-        submitBtn.textContent   = '✓ Message envoyé !';
-        submitBtn.style.opacity = '1';
-        submitBtn.style.background = '#22c55e';
+    const templateParams = {
+        from_name:  document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        message:    document.getElementById('message').value,
+    };
 
-        setTimeout(() => {
-            submitBtn.textContent  = 'Envoyer le message';
-            submitBtn.disabled     = false;
-            submitBtn.style.background = '';
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(() => {
+            submitBtn.textContent      = '✓ Message envoyé !';
+            submitBtn.style.opacity    = '1';
+            submitBtn.style.background = '#22c55e';
             contactForm.reset();
-        }, 3000);
-    }, 1200);
+
+            setTimeout(() => {
+                submitBtn.textContent      = 'Envoyer le message';
+                submitBtn.disabled         = false;
+                submitBtn.style.background = '';
+            }, 3000);
+        })
+        .catch(() => {
+            submitBtn.textContent      = '✗ Erreur — réessaie';
+            submitBtn.style.opacity    = '1';
+            submitBtn.style.background = '#ef4444';
+
+            setTimeout(() => {
+                submitBtn.textContent      = 'Envoyer le message';
+                submitBtn.disabled         = false;
+                submitBtn.style.background = '';
+            }, 3000);
+        });
 });
 
 /* ============================================================

@@ -504,6 +504,8 @@ section {
 
 .about-text h2 { margin-bottom: 1.2rem; }
 
+.about-text p + p { margin-top: 1rem; }
+
 .about-cards {
     display: flex;
     flex-direction: column;

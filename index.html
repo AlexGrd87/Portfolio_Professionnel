@@ -15,6 +15,9 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Alexandre Gaillard — Développeur Web Full Stack">
     <meta property="og:description" content="Développeur web en formation à Limoges, passionné par le Full Stack. Découvrez mes projets et mon parcours.">
+    <meta property="og:image" content="https://alexgrd87.github.io/Portfolio_Professionnel/Images/Boutique%20manga.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter Card -->
@@ -26,6 +29,13 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Remplace YOUR_PUBLIC_KEY par ta clé publique EmailJS
+        emailjs.init({ publicKey: 'O9nVqdHrjC-0dhXbU' });
+    </script>
 </head>
 <body>
 
@@ -94,8 +104,8 @@
                 <div class="about-text">
                     <h2>Qui suis-je ?</h2>
                     <p>Après un <strong>DUT Techniques de Commercialisation</strong> et <strong>10 ans d'expérience en tant que commercial</strong>, j'ai fait le choix de me reconvertir vers ce qui me passionne vraiment : le développement web.</p>
-                    <p style="margin-top: 1rem;">Aujourd'hui en formation <strong>Développeur Web et Web Mobile</strong> à Limoges, je construis des bases solides en HTML, CSS, JavaScript et Git, avec pour objectif de devenir <span class="accent">Développeur Full Stack</span> — capable de concevoir, développer et déployer des applications de A à Z.</p>
-                    <p style="margin-top: 1rem;">Mon parcours commercial m'a appris la rigueur, l'écoute client et la gestion de projet : des atouts que j'applique chaque jour dans mon approche du code.</p>
+                    <p>Aujourd'hui en formation <strong>Développeur Web et Web Mobile</strong> à Limoges, je construis des bases solides en HTML, CSS, JavaScript et Git, avec pour objectif de devenir <span class="accent">Développeur Full Stack</span> — capable de concevoir, développer et déployer des applications de A à Z.</p>
+                    <p>Mon parcours commercial m'a appris la rigueur, l'écoute client et la gestion de projet : des atouts que j'applique chaque jour dans mon approche du code.</p>
                 </div>
             </div>
             <div class="about-cards reveal">
@@ -121,40 +131,40 @@
             <div class="skill-item reveal" data-label="MARKUP / STYLE">
                 <div class="skill-header">
                     <span class="skill-name">HTML5</span>
-                    <span class="skill-percent">100%</span>
+                    <span class="skill-percent">85%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="100"></div>
+                    <div class="skill-fill" data-width="85"></div>
                 </div>
             </div>
 
             <div class="skill-item reveal" data-label="MARKUP / STYLE">
                 <div class="skill-header">
                     <span class="skill-name">CSS3</span>
-                    <span class="skill-percent">100%</span>
+                    <span class="skill-percent">85%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="100"></div>
+                    <div class="skill-fill" data-width="85"></div>
                 </div>
             </div>
 
             <div class="skill-item reveal" data-label="LANGAGE">
                 <div class="skill-header">
                     <span class="skill-name">JavaScript</span>
-                    <span class="skill-percent">100%</span>
+                    <span class="skill-percent">70%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="100"></div>
+                    <div class="skill-fill" data-width="70"></div>
                 </div>
             </div>
 
             <div class="skill-item reveal" data-label="OUTIL">
                 <div class="skill-header">
                     <span class="skill-name">Git / GitHub</span>
-                    <span class="skill-percent">100%</span>
+                    <span class="skill-percent">75%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="100"></div>
+                    <div class="skill-fill" data-width="75"></div>
                 </div>
             </div>
 
@@ -232,7 +242,7 @@
                 </div>
                 <p>Boutique en ligne statique : catalogue filtrable par genre, fiches produit détaillées et gestion du panier côté client — démontre la gestion d'état complexe en Vanilla JS, sans backend ni dépendance externe.</p>
                 <div class="project-links">
-                    <a href="https://github.com/AlexGrd87" target="_blank" rel="noopener" class="btn-outline">Voir le code →</a>
+                    <a href="https://github.com/AlexGrd87/projet-manga" target="_blank" rel="noopener" class="btn-outline">Voir le code →</a>
                 </div>
             </div>
         </article>
