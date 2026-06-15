@@ -1,0 +1,32 @@
+{
+  "name": "nina-carducci-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "convert": "node convert-images.js",
+    "minify:css": "cleancss -o assets/style.min.css assets/style.css",
+    "minify:js": "terser assets/scripts.js -o assets/scripts.min.js && terser assets/maugallery.js -o assets/maugallery.min.js",
+    "build": "npm run minify:css && npm run minify:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexGrd87/Nina.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AlexGrd87/Nina/issues"
+  },
+  "homepage": "https://github.com/AlexGrd87/Nina#readme",
+  "dependencies": {
+    "docx": "^9.7.1",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.48.0"
+  }
+}
